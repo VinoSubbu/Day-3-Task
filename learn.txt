@@ -1,0 +1,146 @@
+Topics : JSON 
+         Events
+
+         
+                                                     >>> JSON CONTENT <<<                        
+
+JSON stands for JavaScript Object Notation
+JSON is a lightweight data-interchange format
+JSON is plain text format written in JavaScript object notation
+JSON is used to send data between computers
+JSON is language independent*
+
+
+receiving data from a web server in STRING
+// Convert String to Object // Parse the data with JSON.parse() 
+Now it is Object format , So you can access now then
+// Convert Object to String for Sending to server // JSON.stringify(myObj);
+..                                                   window.location = "demo_json.php?x=" + myJSON;
+
+
+
+
+IMPO NOTES :
+   In JSON, string values must be written with double quotes
+   file type for JSON files is ".json"
+   MIME type for JSON text is "application/json"
+
+SYNTAX OF JSON :
+'{"name":"John", "age":30, "car":null}'
+let personName = obj.name;
+
+RULE OF SYNTAX :
+ -> Data is in name/value pairs
+ -> Data is separated by commas
+ -> Curly braces hold objects
+ -> Square brackets hold arrays
+
+
+WHY USE JSON ??
+ -> JSON format is syntactically similar to JavaScript objects. Because of this, a program can easily convert JSON data into JavaScript objects.
+ -> Since the format is text only, JSON data can easily be sent between computers, and used by any programming language.
+
+JavaScript has a built in function for converting JSON strings into JavaScript objects:
+JSON.parse()
+
+JavaScript also has a built in function for converting an object into a JSON string:
+JSON.stringify()
+
+
+HOW CAN / BY WHICH FORMAT CAN BE TRANSFERRED ??
+ -> You can receive pure text from a server and use it as JavaScript object.
+ -> You can send a JavaScript object to a server in pure text format.
+ -> You can work with data as JavaScript objects, with no complicated parsing and translations.
+
+
+                                                      >>> JSON vs XML <<< 
+
+Similar b/w them :
+  -> Both JSON and XML can be used to receive data from a web server.
+  -> JSON and XML can be fetched with an XMLHttpRequest.
+
+Diff b/w them : 
+  -> XML has to be parsed with an XML parser. JSON can be parsed by a standard JavaScript function.
+  -> By their Syntax format ( like JSON has obj syntax & XML has tag syntax..)
+
+Why JSON is Better Than XML ??
+ -> XML is much more difficult to parse than JSON , But JSON is parsed into a ready-to-use JavaScript object.
+
+
+                                                      >>> JSON Data Types <<< 
+
+
+Valid Data Types : string , number , object (JSON object) , array , boolean , null
+ => {"name":"John"}
+ => {"age":30}
+ => {
+    "employee":{"name":"John", "age":30, "city":"New York"}
+    }
+ => {
+    "employees":["John", "Anna", "Peter"]
+    }
+ => {"sale":true}
+ => {"middlename":null}
+
+Not Valid Data Types : function , date , undefined
+
+
+                                                      >>> JSON.parse() <<< 
+
+When receiving data from a web server, the data is always a string.
+Parse the data with JSON.parse(), and the data becomes a JavaScript object.
+
+Imagine we received this text from a web server:
+'{"name":"John", "age":30, "city":"New York"}'
+
+Use the JavaScript function JSON.parse() to convert text into a JavaScript object:
+const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+
+IMPO NOTES : Make sure the text is in JSON format, or else you will get a syntax error.
+
+Array as JSON : 
+When using the JSON.parse() on a JSON derived from an array, the method will return a JavaScript array, instead of a JavaScript object.
+ const text = '["Ford", "BMW", "Audi", "Fiat"]';
+ const myArr = JSON.parse(text);
+
+
+                                                      >>> JSON.stringify() <<< 
+
+When sending data to a web server, the data has to be in a string format.
+Convert a JavaScript object into a string with JSON.stringify().
+
+Imagine we have this object in JavaScript:
+const obj = {name: "John", age: 30, city: "New York"};
+
+Use the JavaScript function JSON.stringify() to convert it into a string.
+const myJSON = JSON.stringify(obj);
+
+Stringify a JavaScript Array ( converting a Array to String format)
+ const arr = ["John", "Peter", "Sally", "Jane"];
+ const myJSON = JSON.stringify(arr);
+
+
+                                                      >>> JSON Objects <<< 
+
+Accessing Object Values :
+ const myJSON = '{"name":"John", "age":30, "car":null}';
+ const myObj = JSON.parse(myJSON);
+ x = myObj.name;
+
+Looping an Object :
+ => You can loop through object properties with a for-in loop :
+  const myJSON = '{"name":"John", "age":30, "car":null}';
+  const myObj = JSON.parse(myJSON);
+    let text = "";
+      for (const x in myObj) {
+      text += x + ", ";
+    }
+
+
+                                                      >>> JSON Objects <<< 
+Accessing JSON Array :
+ myArray[0];
+
+'["Ford", "BMW", "Fiat"]'
+myJSON = '["Ford", "BMW", "Fiat"]';
+myArray = JSON.parse(myJSON);
